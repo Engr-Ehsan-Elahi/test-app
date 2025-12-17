@@ -22,10 +22,8 @@ jobs:
         run: pytest
         
       - name: Login to Docker Hub
-      - run: |
-          echo -n "${{ secrets.DOCKER_USERNAME }}" || echo "Username missing"
-          echo -n "${{ secrets.DOCKER_PASSWORD }}" || echo "Password missing"
-          
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
       - name: Build Docker Image
         run: docker build -t ehsanelahi249/week3-app:${{ github.sha }} .
 
