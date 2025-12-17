@@ -23,8 +23,8 @@ jobs:
         
       - name: Login to Docker Hub
       - run: |
-          test -n "${{ secrets.DOCKER_USERNAME }}" || echo "Username missing"
-          test -n "${{ secrets.DOCKER_PASSWORD }}" || echo "Password missing"
+          echo -n "${{ secrets.DOCKER_USERNAME }}" || echo "Username missing"
+          echo -n "${{ secrets.DOCKER_PASSWORD }}" || echo "Password missing"
           
       - name: Build Docker Image
         run: docker build -t ehsanelahi249/week3-app:${{ github.sha }} .
