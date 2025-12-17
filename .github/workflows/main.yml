@@ -34,3 +34,4 @@ jobs:
 
       - name: Push Docker Image
         run: docker push ehsanelahi249/week3-app:${{ github.sha }}
+        
